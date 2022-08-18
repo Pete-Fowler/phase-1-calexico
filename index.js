@@ -17,15 +17,15 @@ const cart = (e) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      "Accept:": "applicaton/json",
     },
     body: JSON.stringify({
       "number_in_bag": clicked.number_in_bag,
     }),
   };
+  console.log(clicked.id);
   fetch(`http://localhost:3000/menu/${clicked.id}`, config)
   .then(res => res.json())
-  .then(data => console.log(data))
+  .then(data => console.log(data));
   // .catch(err => console.log(err.message));
 }
 
