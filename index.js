@@ -1,5 +1,6 @@
 let menuObj;
 let clicked;
+let total;
 const menu = document.querySelector('#menu-items');
 const image = document.querySelector('#dish-image');
 const title = document.querySelector('#dish-name');
@@ -8,6 +9,22 @@ const price = document.querySelector('#dish-price');
 const form = document.querySelector('#cart-form');
 const input = document.querySelector('#cart-amount');
 const count = document.querySelector('#number-in-cart');
+
+const addUp = (data) => {
+  
+}
+
+const displayTotal = (data) => {
+  const container = document.querySelector('#dish');
+  const totalBox = document.createElement('h3');
+  total = data.reduce((prev, current) => {
+      return prev + current.price * current.number_in_bag;
+    }, 0);
+  console.log(total);
+  
+  totalBox.textContent = `Current Total: ${total}`;
+  container.append(totalBox);
+}
 
 const cart = (e) => {
   e.preventDefault();
@@ -25,8 +42,9 @@ const cart = (e) => {
   console.log(clicked.id);
   fetch(`http://localhost:3000/menu/${clicked.id}`, config)
   .then(res => res.json())
-  .then(data => console.log(data));
-  // .catch(err => console.log(err.message));
+  .then(data => console.log(data))
+  .catch(err => console.log(err.message));
+  displayTotal();
 }
 
 const addItems = (data) => {
@@ -54,6 +72,7 @@ const getMenu = () => {
   .then(data => {
     addItems(data);
     addDetail(data[0]);
+    displayTotal(data);
     menuObj = data;
   })
 }

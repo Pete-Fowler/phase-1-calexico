@@ -6,7 +6,7 @@
       "image": "./assets/calexico-guac.webp",
       "description": "House-made tortilla chips with fresh daily made guacamole",
       "price": 13,
-      "number_in_bag": 2
+      "number_in_bag": 1
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "image": "./assets/calexico-chipotle-pork-bowl.webp",
       "description": "Slow-cooked chipotle pork, pickled red onions, Jack and cheddar cheese, pico de gallo, and sour cream.",
       "price": 13,
-      "number_in_bag": 3
+      "number_in_bag": 0
     },
     {
       "id": 4,
